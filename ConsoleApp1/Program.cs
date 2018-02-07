@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Dynamic.Core;
-using System.Text;
-using System.Threading.Tasks;
 using NFluent;
 
 namespace ConsoleApp1
@@ -37,8 +35,30 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             // Arrange
-            var employees = new List<Employee>();
-            var paychecks = new List<Paycheck>();
+            var employee1 = new Employee {Age = 66, EmployeeId = 1000, FirstName = "fn", LastName = "ln"};
+            var employees = new List<Employee> { employee1 };
+
+            var paychecks = new List<Paycheck>
+            {
+                new Paycheck
+                {
+                    EmployeeId = 1000,
+                    Employee = employee1,
+                    DateCreated = DateTimeOffset.Now,
+                    HourlyWage = 10,
+                    HoursWorked = 40,
+                    PaycheckId = 5000
+                },
+                new Paycheck
+                {
+                    EmployeeId = 1000,
+                    Employee = employee1,
+                    DateCreated = DateTimeOffset.Now,
+                    HourlyWage = 10,
+                    HoursWorked = 20,
+                    PaycheckId = 5001
+                }
+            };
 
             // Act
             var realQuery = employees.AsQueryable().GroupJoin(

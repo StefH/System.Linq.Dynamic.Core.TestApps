@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="..\ConsoleApp1\Program.cs" Link="Program.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="NFluent" Version="2.1.1" />
     <PackageReference Include="System.Linq.Dynamic.Core" Version="1.0.8.2" />
     <PackageReference Include="xunit" Version="2.3.1" />
